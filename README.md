@@ -128,8 +128,47 @@ http://127.0.0.1:5001/<project-id>/<region>/api
 Example:
 
 http://127.0.0.1:5001/interactive-dashboard-7add2/europe-west1/api
+## Running the Backend (Local via Firebase Emulators)
 
+### Prerequisites
+- Node.js **22** (as required by `engines.node`)
+- Firebase CLI installed and authenticated
+  ```bash
+  npm i -g firebase-tools
+  firebase login
+  ```
 
+  ### Install dependencies
+
+From `functions/`:
+
+```bash
+cd functions
+npm install
+npm run serve
+```
+## Local Emulator Endpoints
+
+### Backend (Cloud Functions emulator)
+
+If your HTTP function is exported as `api`, the **base URL** is:
+
+```txt
+http://127.0.0.1:5001/<PROJECT_ID>/<REGION>/api
+http://127.0.0.1:5001/interactive-dashboard-7add2/europe-west3/api
+```
+
+### Backend (Auth emulator)
+
+SignUp 
+```txt
+http://127.0.0.1:9099/identitytoolkit.googleapis.com/v1/accounts:signUp?key=fake-api-key
+```
+SignIn
+```txt
+http://127.0.0.1:9099/identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=fake-api-key
+
+```
 ### Deployment
 - Deploy Functions
 
